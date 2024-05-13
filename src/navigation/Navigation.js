@@ -1,23 +1,24 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 // @TODO: Import the `Menu` and `MenuItem` components
-import { useHistory, useRouteMatch } from 'react-router-dom';
+import { useNavigate, useMatch } from 'react-router-dom';
+import { Menu, MenuItem } from '@dhis2/ui';
 
 const NavigationItem = ({ path, label }) => {
   // browser history object
-  const history = useHistory();
+  const navigate = useNavigate();
 
   // "null" when not active, "object" when active
-  const routeMatch = useRouteMatch(path);
+  const routeMatch = useMatch(path);
   // If "isActive" is not null and "isActive.isExact" is true
   const isActive = routeMatch?.isExact;
 
   // Callback called when clicking on the menu item.
   // If the menu item is not active, navigate to the path
-  const onClick = () => !isActive && history.push(path);
+  const onClick = () => !isActive && navigate(path);
 
   // @TODO: Use the `MenuItem` component insteaf of the `span`
-  return <span label={label} active={isActive} onClick={onClick} />;
+  return <MenuItem label={label} active={isActive} onClick={onClick} />;
 };
 
 NavigationItem.propTypes = {
@@ -27,7 +28,7 @@ NavigationItem.propTypes = {
 
 export const Navigation = () => (
   // @TODO: Use the `Menu` component instead of the `div`
-  <div>
+  <Menu>
     <NavigationItem
       // Menu item for the home page
       label="Home"
@@ -45,5 +46,5 @@ export const Navigation = () => (
       label="Form"
       path="/form"
     />
-  </div>
+  </Menu>
 );

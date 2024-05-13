@@ -7,6 +7,17 @@ import { ReactFinalForm } from '@dhis2/ui';
 import React from 'react';
 import styles from './Form.module.css';
 
+import {
+  Button,
+  InputFieldFF,
+  SingleSelectFieldFF,
+  SwitchFieldFF,
+  composeValidators,
+  createEqualTo,
+  email,
+  hasValue,
+} from '@dhis2/ui';
+
 /**
  * This is just a function to demonstrate the values when the form is submitted
  * It takes the form's values (which is an object), transforms it into readable JSON,
@@ -38,10 +49,9 @@ export const Form = () => (
             <Field
               name="title"
               label="Title"
-              // @TODO: Use `SingleSelectFieldFF` as component
-              component={'span'}
+              component={SingleSelectFieldFF}
               className={styles.title}
-              // @TODO: Use `"none"` as initialValue
+              initialValue="none"
               options={[
                 { label: 'Professor', value: 'prof' },
                 { label: 'Doctor', value: 'doc' },
@@ -55,22 +65,18 @@ export const Form = () => (
               required
               name="surname"
               label="Surname"
-              // @TODO: Use the `InputFieldFF` component
-              component={'span'}
+              component={InputFieldFF}
               className={styles.surname}
-              // @TODO: Use the `hasValue` validator
-              validate={() => undefined}
+              validate={hasValue}
             />
 
             <Field
               required
               name="firstname"
               label="First name"
-              // @TODO: Use the `InputFieldFF` compmonent
-              component={'span'}
+              component={InputFieldFF}
               className={styles.firstname}
-              // @TODO: Use the `hasValue` validator
-              validate={() => undefined}
+              validate={hasValue}
             />
           </div>
 
@@ -79,11 +85,9 @@ export const Form = () => (
               required
               name="email"
               label="E-mail address"
-              // @TODO: Use the `InputFieldFF` component
-              component={'span'}
+              component={InputFieldFF}
               className={styles.email}
-              // @TODO: Supply validator composition of `email` & `hasValue`
-              validate={() => undefined}
+              validate={composeValidators(email, hasValue)}
             />
           </div>
 
@@ -92,11 +96,9 @@ export const Form = () => (
               required
               name="email-confirmation"
               label="Confirm e-mail address"
-              // @TODO: Use the `InputFieldFF` component
-              component={'span'}
+              component={InputFieldFF}
               className={styles.email}
-              // @TODO: Supply validator composition of `createEqualTo('email')` & `hasValue`
-              validate={() => undefined}
+              validate={composeValidators(createEqualTo('email'), hasValue)}
             />
           </div>
 
@@ -105,21 +107,16 @@ export const Form = () => (
               type="checkbox"
               name="newsletter"
               label="I want to receive the newsletter"
-              // @TODO: Use the `SwitchFieldFF` component
-              component={'span'}
+              component={SwitchFieldFF}
               className={styles.newsletters}
               initialValue={false}
             />
           </div>
 
           <div className={styles.row}>
-            <span
-            // @TODO: Use the `Button` component
-            // @TODO: Use `type="submit"` to be able to submit the form with the mouse
-            // @TODO: Use the button's primary variant
-            >
+            <Button type="submit" primary>
               Submit form
-            </span>
+            </Button>
           </div>
         </form>
       )}
