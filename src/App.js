@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styles from './App.module.css';
 import { Navigation } from './navigation';
-import { Form, Home, Attributes, NoMatch } from './views';
+import { Form, Home, Attributes } from './views';
 
 const MyApp = () => (
   <BrowserRouter
@@ -22,7 +22,7 @@ const MyApp = () => (
       </div>
 
       <div className={styles.right}>
-        <Switch
+        <Routes
         // will ensure that only the first route,
         // that matches the url, will be rendered
         // otherwise the 404 page would be rendered everytime
@@ -32,7 +32,7 @@ const MyApp = () => (
             // when "/" is the current url
             exact
             path="/"
-            component={Home}
+            element={<Home />}
           />
 
           <Route
@@ -40,7 +40,7 @@ const MyApp = () => (
             // when "/faq" is the current url
             exact
             path="/form"
-            component={Form}
+            element={<Form />}
           />
 
           <Route
@@ -48,15 +48,15 @@ const MyApp = () => (
             // when "/attributes" is the current url
             exact
             path="/attributes"
-            component={Attributes}
+            element={<Attributes />}
           />
 
           <Route
             // 404 page
             // The `NoMatch` component will redirect to "/"
-            component={NoMatch}
+            element={<Home />}
           />
-        </Switch>
+        </Routes>
       </div>
     </div>
   </BrowserRouter>

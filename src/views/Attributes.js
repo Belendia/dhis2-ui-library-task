@@ -1,7 +1,15 @@
 // @TODO: Import `Table`, `TableBody`, `TableCell`, `TableCellHead`, `TableHead`, `TableRow` & `TableRowHead` from `@dhis2/ui`
 import { useDataQuery } from '@dhis2/app-runtime';
 import React from 'react';
-
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableCellHead,
+  TableHead,
+  TableRow,
+  TableRowHead,
+} from '@dhis2/ui';
 /**
  * This defined the data that we want to get
  * The `app-runtime` will be explained in a another session after this one,
@@ -50,37 +58,24 @@ export const Attributes = () => {
       {
         // if there is any data available
         data?.attributes?.attributes && (
-          <div
-          // @TODO: Use a `Table` component
-          >
-            <div
-            // @TODO: Use a `TableHead` component
-            >
-              <div
-              // @TODO: Use a `TableRowHead` component
-              // @TODO: And use `TableCellHead` component for the cells
-              >
-                <div>Name</div>
-                <div>Unique</div>
-              </div>
-            </div>
-            <div
-            // @TODO: Use a `TableBody` component
-            >
+          <Table>
+            <TableHead>
+              <TableRowHead>
+                <TableCellHead>Name</TableCellHead>
+                <TableCellHead>Unique</TableCellHead>
+              </TableRowHead>
+            </TableHead>
+            <TableBody>
               {data.attributes.attributes.map(({ id, displayName, unique }) => (
                 // @TODO: Render the displayName in a `TableCell`
                 // @TODO: Render 'yes' or 'no', depending on the value of `unique`
-                <div
-                  // @TODO: Use the `TableRow` component
-                  key={id}
-                >
-                  <span
-                  // @TODO: Use the `TableCell` to render data
-                  />
-                </div>
+                <TableRow key={id}>
+                  <TableCell>{displayName}</TableCell>
+                  <TableCell>{unique ? 'Yes' : 'No'}</TableCell>
+                </TableRow>
               ))}
-            </div>
-          </div>
+            </TableBody>
+          </Table>
         )
       }
     </div>
