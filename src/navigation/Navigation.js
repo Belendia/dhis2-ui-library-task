@@ -46,5 +46,11 @@ export const Navigation = () => (
       label="Form"
       path="/form"
     />
+
+    <NavigationItem
+      // Menu item for the Form page
+      label="OrgUnits"
+      path="/orgunits"
+    />
   </Menu>
 );
