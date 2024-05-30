@@ -52,5 +52,11 @@ export const Navigation = () => (
       label="OrgUnits"
       path="/orgunits"
     />
+
+    <NavigationItem
+      // Menu item for the Form page
+      label="Visualizations"
+      path="/visualizations"
+    />
   </Menu>
 );

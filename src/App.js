@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styles from './App.module.css';
 import { Navigation } from './navigation';
-import { Form, Home, Attributes } from './views';
-import { OrgUnits } from './views/OrgUnits';
+import { Form, Home, Attributes, OrgUnits, VisualizationsList } from './views';
 
 const MyApp = () => (
   <BrowserRouter
@@ -58,6 +57,12 @@ const MyApp = () => (
             exact
             path="/orgunits"
             element={<OrgUnits />}
+          />
+
+          <Route
+            exact
+            path="/visualizations"
+            element={<VisualizationsList listSize={10} />}
           />
 
           <Route
