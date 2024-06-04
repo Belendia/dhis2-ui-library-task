@@ -24,7 +24,7 @@ const mutation = {
   }),
 };
 
-export default function VisualizationsListItem({ visualization, refetch }) {
+export const VisualizationsListItem = ({ visualization, refetch }) => {
   // 8. Set up a dynamic alert to communicate success or failure of mutation
   const { show } = useAlert(
     ({ message }) => message,
@@ -73,4 +73,4 @@ export default function VisualizationsListItem({ visualization, refetch }) {
       </Button>
     </li>
   );
-}
+};

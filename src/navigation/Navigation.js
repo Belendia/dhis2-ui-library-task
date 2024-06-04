@@ -48,15 +48,27 @@ export const Navigation = () => (
     />
 
     <NavigationItem
-      // Menu item for the Form page
+      // Menu item for the Org units
       label="OrgUnits"
       path="/orgunits"
     />
 
     <NavigationItem
-      // Menu item for the Form page
+      // Menu item for the Visualizations
       label="Visualizations"
       path="/visualizations"
+    />
+
+    <NavigationItem
+      // Menu item for the Objects
+      label="Objects"
+      path="/objects"
+    />
+
+    <NavigationItem
+      // Menu item for the Settings
+      label="Settings"
+      path="/settings"
     />
   </Menu>
 );

@@ -2,7 +2,7 @@
 import { useDataQuery } from '@dhis2/app-service-data';
 import { Button, CircularLoader } from '@dhis2/ui';
 import React from 'react';
-import VisualizationsListItem from '../components/VisualizationsListItem';
+import { VisualizationsListItem } from '../components';
 
 const query = {
   visualizations: {
