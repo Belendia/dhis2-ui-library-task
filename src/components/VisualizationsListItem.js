@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useAlert, useDataMutation } from '@dhis2/app-runtime';
+import { useAlert, useDataMutation, useOnlineStatus } from '@dhis2/app-runtime';
 import { Button } from '@dhis2/ui';
 import React from 'react';
 
@@ -25,6 +25,8 @@ const mutation = {
 };
 
 export const VisualizationsListItem = ({ visualization, refetch }) => {
+  const { online, offline } = useOnlineStatus();
+
   // 8. Set up a dynamic alert to communicate success or failure of mutation
   const { show } = useAlert(
     ({ message }) => message,
@@ -68,7 +70,7 @@ export const VisualizationsListItem = ({ visualization, refetch }) => {
   return (
     <li style={styles}>
       {visualization.name}{' '}
-      <Button small disabled={loading} onClick={addEmoji}>
+      <Button small disabled={loading || !online} onClick={addEmoji}>
         Add emoji ✨
       </Button>
     </li>
