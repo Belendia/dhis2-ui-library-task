@@ -5,3 +5,4 @@ export * from './OrgUnits';
 export * from './VisualizationsList';
 export * from './Objects';
 export * from './Settings';
+export * from './PWDVis';

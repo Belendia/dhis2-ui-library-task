@@ -70,5 +70,7 @@ export const Navigation = () => (
       label="Settings"
       path="/settings"
     />
+
+    <NavigationItem label="PWD Visualization" path="/pwdvis" />
   </Menu>
 );

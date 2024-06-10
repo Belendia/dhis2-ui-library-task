@@ -12,6 +12,7 @@ import {
   VisualizationsList,
   Objects,
   Settings,
+  PWDVis,
 } from './views';
 
 const MyApp = () => (
@@ -79,6 +80,8 @@ const MyApp = () => (
             <Route exact path="/objects" element={<Objects />} />
 
             <Route exact path="/settings" element={<Settings />} />
+
+            <Route exact path="/pwdvis" element={<PWDVis />} />
 
             <Route
               // 404 page
