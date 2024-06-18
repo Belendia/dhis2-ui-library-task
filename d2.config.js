@@ -3,7 +3,7 @@ const config = {
   name: 'training-app',
   title: 'Training App',
   pwa: {
-    enable: true,
+    enabled: true,
     caching: {
       // For the purposes of this demo, to simulate dashboard content:
       patternsToOmitFromAppShell: ['visualizations'],
